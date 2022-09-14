@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { computed, onMounted, onUpdated, ref } from '@vue/runtime-core';
+import { computed, onMounted, onUpdated, ref } from 'vue';
 import {useStore} from 'vuex'
 import MovieList from '../components/MovieList.vue'
 export default {  
@@ -19,13 +19,11 @@ export default {
     const store = useStore();
     // 처음에는 computed 가 결과가 없는 상태
     const movieList = computed( () => store.getters.getMovieList )
-    // html 태그의 속성으로 ref를 활용하여 선택
+    // html 태그의 속성으로 ref 를 활용하여 선택
     const gotop = ref(null);
-    onMounted(() => {
+    onMounted( () => {
       // console.log(gotop.value)
     })
-
-
     // axios 실행 > vuex : mutaion 실행    
     onUpdated( () => {
       // 내용물이 최종 업데이트가 되었다면 App 으로 
@@ -36,19 +34,17 @@ export default {
       }, 1500)
       
     });
-
-    const moveTop = () =>{
+    const moveTop = () => {
       window.scrollTo({
-        top:0,
-        left:0,
-        behavior:'smooth'
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
       });
     }
-
     return {  
       movieList,
       gotop,
-      moveTop   
+      moveTop
     }
   }
 }
@@ -68,23 +64,21 @@ export default {
             0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
   cursor: pointer;
 }
-
-.gotop{
+.gotop {
   position: fixed;
   right: 50px;
   bottom: 150px;
-  width: 70px;
-  height:  70px;
+  width: 100px;
+  height: 100px;
   text-align: center;
-  line-height: 70px;
-  background-color: #f00;
+  line-height: 100px;
+  background: #f00;
   color: #fff;
   cursor: pointer;
   z-index: 9;
   border: 0;
-  border-radius: 50%;
+  border-radius: 10px;
 }
-
 @media screen and (max-width: 1000px) {
     .movie {
       width: 95%;
