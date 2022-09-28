@@ -21,9 +21,11 @@ export default {
     const movieList = computed( () => store.getters.getMovieList )
     // html 태그의 속성으로 ref 를 활용하여 선택
     const gotop = ref(null);
+
     onMounted( () => {
       // console.log(gotop.value)
     })
+
     // axios 실행 > vuex : mutaion 실행    
     onUpdated( () => {
       // 내용물이 최종 업데이트가 되었다면 App 으로 
@@ -34,6 +36,7 @@ export default {
       }, 1500)
       
     });
+
     const moveTop = () => {
       window.scrollTo({
         top: 0,
@@ -41,6 +44,7 @@ export default {
         behavior: 'smooth'
       });
     }
+
     return {  
       movieList,
       gotop,
@@ -64,6 +68,7 @@ export default {
             0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
   cursor: pointer;
 }
+
 .gotop {
   position: fixed;
   right: 50px;
@@ -79,6 +84,7 @@ export default {
   border: 0;
   border-radius: 10px;
 }
+
 @media screen and (max-width: 1000px) {
     .movie {
       width: 95%;
